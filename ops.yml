@@ -38,7 +38,7 @@ actions:
     command: bundle exec rubocop
     alias: l
   build:
-    command: docker build -t influx-pushover-gateway .
+    command: docker build -t nickthecook/influx-pushover-gateway -t influx-pushover-gateway .
     alias: b
   post:
     command: "curl -v http://127.0.0.1:$APP_PORT/notification -d @spec/fixtures/incoming.json -H \"Content-Type: application/json\""
