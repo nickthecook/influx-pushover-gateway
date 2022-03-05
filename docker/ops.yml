@@ -29,4 +29,4 @@ actions:
     alias: sh
 options:
   environment:
-    APP_EJSON_KEY: "${APP_EJSON_KEY:-$(jq -r ._public_key < config/dev/secrets.ejson)}"
+    APP_EJSON_KEY: "${APP_EJSON_KEY:-$(jq -r ._public_key < ../config/$environment/secrets.ejson)}"
