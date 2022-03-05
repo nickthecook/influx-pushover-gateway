@@ -45,6 +45,8 @@ actions:
   post-container:
     command: APP_PORT=8080 ops post
     alias: postc
+  push:
+    command: docker push nickthecook/influx-pushover-gateway:latest
 options:
   environment:
     E2E_SPEC_URL: ${E2E_SPEC_URL:-http://localhost:9292}

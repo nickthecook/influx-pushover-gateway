@@ -11,4 +11,4 @@ services:
       - environment=${environment}
     volumes:
       - ~/.ejson/${APP_EJSON_KEY}:/opt/ejson/keys/${APP_EJSON_KEY}
-      - ./config:/srv/config
+      - ../config:/srv/config
