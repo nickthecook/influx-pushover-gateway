@@ -3,7 +3,6 @@ dependencies:
     - jq
   gem:
     - ejson
-    - rerun
     - bundler ~>2.2
   custom:
     - bundle config path 'vendor/bundle' --local
