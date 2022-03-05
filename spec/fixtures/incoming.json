@@ -3,7 +3,7 @@
   "_check_name": "Water level",
   "_level": "crit",
   "_measurement": "notifications",
-  "_message": "{\"message\":\"High water level!\",\"title\":\"Water level\"}",
+  "_message": "{\"message\":\"Water level is high water level!\",\"title\":\"Water level\"}",
   "_notification_endpoint_id": "0901bb174bedd000",
   "_notification_endpoint_name": "Test",
   "_notification_rule_id": "0901bb34a9631000",

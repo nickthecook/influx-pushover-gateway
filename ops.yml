@@ -37,11 +37,18 @@ actions:
   lint:
     command: bundle exec rubocop
     alias: l
+  build:
+    command: docker build -t influx-pushover-gateway .
+    alias: b
   post:
-    command: "curl -v http://127.0.0.1:9292/notification -d @spec/fixtures/incoming.json -H \"Content-Type: application/json\""
+    command: "curl -v http://127.0.0.1:$APP_PORT/notification -d @spec/fixtures/incoming.json -H \"Content-Type: application/json\""
+  post-container:
+    command: APP_PORT=8080 ops post
+    alias: postc
 options:
   environment:
     E2E_SPEC_URL: ${E2E_SPEC_URL:-http://localhost:9292}
+    APP_PORT: ${APP_PORT:-9292}
   apt:
     use_sudo: true
   exec:

@@ -1,0 +1,13 @@
+version: "3"
+services:
+  gateway:
+    container_name: influx-pushover-gateway
+    image: "influx-pushover-gateway:latest"
+    hostname: "influx-pushover-gateway"
+    restart: unless-stopped
+    ports:
+      - 8080:9292
+    environment:
+      - environment=${environment}
+    volumes:
+      - ~/.ejson/${APP_EJSON_KEY}:/opt/ejson/keys/${APP_EJSON_KEY}

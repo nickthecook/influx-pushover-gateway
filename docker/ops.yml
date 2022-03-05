@@ -1,0 +1,32 @@
+dependencies:
+  custom:
+    - bundle
+actions:
+  start:
+    command: docker-compose up -d
+    load_secrets: true
+  stop:
+    command: docker-compose down
+    load_secrets: true
+  restart:
+    command: docker-compose restart
+  logs:
+    command: docker-compose logs -f --tail 100
+    alias: l
+  start-logs:
+    command: ops start && ops logs
+    alias: sl
+  bounce:
+    command: ops stop; ops start
+  bounce-logs:
+    command: ops bounce; ops logs
+    alias: bl
+  status:
+    command: docker-compose ps
+    alias: ps
+  shell:
+    command: docker-compose exec gateway /bin/sh
+    alias: sh
+options:
+  environment:
+    APP_EJSON_KEY: "${APP_EJSON_KEY:-$(jq -r ._public_key < config/dev/secrets.ejson)}"
