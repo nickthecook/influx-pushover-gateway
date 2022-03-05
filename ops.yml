@@ -1,0 +1,48 @@
+dependencies:
+  apt:
+    - jq
+  gem:
+    - ejson
+    - rerun
+    - bundler ~>2.2
+  custom:
+    - bundle config path 'vendor/bundle' --local
+    - bundler install --quiet
+actions:
+  start:
+    command: bundle exec rackup --host 0.0.0.0
+    load_secrets: true
+  stop:
+    command: kill $(lsof -i :9292 -t)
+  restart:
+    command: ops stop; ops start
+  watch:
+    command: rerun 'ops start'
+    alias: w
+  test:
+    command: bundle exec rspec --exclude="spec/e2e/*"
+    load_secrets: true
+    alias: t
+  test-watch:
+    command: rerun -x ops test
+    alias: tw
+  test-e2e:
+    command: bundle exec rspec "spec/e2e/"
+    alias: e2e
+    not_in_envs:
+      - production
+  test-watch-e2e:
+    command: rerun -x "sleep 2 && ops test-e2e"
+    alias: twe
+  lint:
+    command: bundle exec rubocop
+    alias: l
+  post:
+    command: "curl -v http://127.0.0.1:9292/notification -d @spec/fixtures/incoming.json -H \"Content-Type: application/json\""
+options:
+  environment:
+    E2E_SPEC_URL: ${E2E_SPEC_URL:-http://localhost:9292}
+  apt:
+    use_sudo: true
+  exec:
+    load_secrets: true

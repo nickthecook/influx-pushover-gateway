@@ -1,0 +1,22 @@
+{
+  "_check_id": "0901b5c83d0db000",
+  "_check_name": "Water level",
+  "_level": "crit",
+  "_measurement": "notifications",
+  "_message": "{\"message\":\"High water level!\",\"title\":\"Water level\"}",
+  "_notification_endpoint_id": "0901bb174bedd000",
+  "_notification_endpoint_name": "Test",
+  "_notification_rule_id": "0901bb34a9631000",
+  "_notification_rule_name": "Test notification",
+  "_source_measurement": "mqtt_consumer",
+  "_source_timestamp": 1646431290000000000,
+  "_start": "2022-03-04T22:01:15Z",
+  "_status_timestamp": 1646431290000000000,
+  "_stop": "2022-03-04T22:01:45Z",
+  "_time": "2022-03-04T22:01:45Z",
+  "_type": "threshold",
+  "_version": 1,
+  "host": "cube.group18.hopto.org",
+  "level_f": 18,
+  "topic": "/home/pump/status"
+}
