@@ -14,7 +14,7 @@ class Pushover
   private
 
   def url
-    @url ||= ENV["PUSHOVER_URL"]
+    @url ||= ENV["PUSHOVER_URL"] || "https://api.pushover.net/1/messages.json"
   end
 
   def token

@@ -14,7 +14,6 @@ services:
     ports:
       - 8080:9292
     environment:
-      - PUSHOVER_URL=https://api.pushover.net/1/messages.json
       - TOKEN=${PUSHOVER_TOKEN}
       - USER_TOKEN=${PUSHOVER_USER_TOKEN}
 ```
