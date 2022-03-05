@@ -51,7 +51,7 @@ options:
     E2E_SPEC_URL: ${E2E_SPEC_URL:-http://localhost:9292}
     APP_PORT: ${APP_PORT:-9292}
     PLATFORM: "$(uname -a | grep -o '\\(arm64\\|x86_64\\)' | head -n 1)"
-    DOCKER_TAG: "$([ \"$PLATFORM\" == x86_64 ] && echo latest || echo \"$PLATFORM\")"
+    DOCKER_TAG: "$([ \"$PLATFORM\" = x86_64 ] && echo latest || echo \"$PLATFORM\")"
   apt:
     use_sudo: true
   exec:
